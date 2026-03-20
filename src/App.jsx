@@ -496,25 +496,7 @@ export default function HoustonLuxeCleaningWebsite() {
         </div>
       </section>
 
-      <section id="booking" className="mx-auto max-w-5xl px-6 pb-20 md:px-10">
-        <div className="rounded-[2rem] border border-amber-300/20 bg-gradient-to-br from-amber-300/10 to-white/5 p-8 md:p-12">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm uppercase tracking-[0.2em] text-amber-200">Ready to book?</p>
-            <h2 className="mt-2 text-3xl font-semibold md:text-5xl">Make your website the checkout experience</h2>
-            <p className="mt-4 text-neutral-300">
-              This page is already structured for a Stripe-powered booking flow and Jobber-powered scheduling workflow.
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <a href="#" className="rounded-2xl bg-amber-300 px-6 py-3 text-sm font-semibold text-black">
-                Connect Stripe Checkout
-              </a>
-              <a href="#" className="rounded-2xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white">
-                Add Jobber Workflow
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+
     </div>
   );
 }
