@@ -175,11 +175,11 @@ export default function HoustonLuxeCleaningWebsite() {
         <div className="relative mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-24">
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <div>
-              <div className="mb-4 inline-flex rounded-full border border-amber-300/30 bg-amber-300/10 px-4 py-1 text-sm text-amber-200">
+              <div className="mb-6 text-3xl font-bold leading-tight text-amber-200 md:text-5xl">
                 Houston’s Luxury Cleaning Experience
               </div>
 
-              <div className="mt-4 max-w-md rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-2xl">
+              <div className="mt-4 max-w-md">
                 <img src={logoPath} alt="Houston Luxe Cleaning logo" className="h-auto w-full object-contain" />
               </div>
 
@@ -219,7 +219,7 @@ export default function HoustonLuxeCleaningWebsite() {
             </div>
 
             <div>
-             <div>
+              <div>
                 <div className="mb-5 flex items-center justify-between">
                   <div>
                     <p className="text-sm uppercase tracking-[0.2em] text-amber-200">Instant Booking</p>
@@ -495,8 +495,6 @@ export default function HoustonLuxeCleaningWebsite() {
           ))}
         </div>
       </section>
-
-
     </div>
   );
 }
