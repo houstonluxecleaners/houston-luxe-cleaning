@@ -12,6 +12,7 @@ export default function HoustonLuxeCleaningWebsite() {
     { id: 'regular-1', label: 'Regular Clean - Studio / 1 Bed', price: 130, checkoutUrl: 'https://book.stripe.com/28E28r8vBeBT1z92ge8g001' },
     { id: 'regular-23', label: 'Regular Clean - 2–3 Bedroom', price: 180, checkoutUrl: 'https://book.stripe.com/fZu00j7rx0L3fpZg748g002' },
     { id: 'regular-4', label: 'Regular Clean - 4 Bedroom', price: 240, checkoutUrl: 'https://book.stripe.com/dRm5kD9zF0L3cdN2ge8g003' },
+    { id: 'regular-2000', label: 'Regular Clean - ~2,000 sq ft', price: 270, checkoutUrl: 'https://book.stripe.com/3cI5kDbHN51jdhRg748g004' },
 
     { id: 'deep-1', label: 'Deep Clean - Studio / 1 Bed', price: 200, checkoutUrl: 'PASTE_DEEP_1_LINK' },
     { id: 'deep-23', label: 'Deep Clean - 2–3 Bedroom', price: 280, checkoutUrl: 'PASTE_DEEP_23_LINK' },
