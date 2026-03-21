@@ -3,6 +3,7 @@ import { ChevronDown } from 'lucide-react';
 
 export default function HoustonLuxeCleaningWebsite() {
   const logoPath = '/logo.png';
+  const GOOGLE_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzBG8ApDnzlTuDTi81QnMLFu_TgBSEiXm_UPlH2cNid2mwi13mamhiquPl_IAqwseV86g/exec';
 
   const serviceOptions = [
     { id: 'test-1', label: '🧪 Test Booking ($1)', price: 1, checkoutUrl: 'https://book.stripe.com/dRm28r4fl79r3HhaMK8g00d' },
@@ -125,6 +126,7 @@ export default function HoustonLuxeCleaningWebsite() {
   const [emailUpdates, setEmailUpdates] = useState(true);
   const [validationMessage, setValidationMessage] = useState('');
   const [showSuccess, setShowSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -155,39 +157,59 @@ export default function HoustonLuxeCleaningWebsite() {
     [selectedService]
   );
 
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
     if (!fullName || !phoneNumber || !emailAddress || !serviceAddress || !selectedDate || !selectedTime) {
       setValidationMessage('Please complete your contact details, address, date, and time before checkout.');
       return;
     }
 
     setValidationMessage('');
+    setIsSubmitting(true);
 
-    if (selectedServiceDetails?.checkoutUrl && typeof window !== 'undefined') {
-      const checkoutUrl = new URL(selectedServiceDetails.checkoutUrl);
-      const successUrl = `${window.location.origin}${window.location.pathname}?booking=success`;
-      const cancelUrl = `${window.location.origin}${window.location.pathname}?booking=cancelled`;
+    try {
+      const bookingPayload = {
+        fullName,
+        phoneNumber,
+        emailAddress,
+        serviceAddress,
+        service: selectedServiceDetails.label,
+        amount: selectedServiceDetails.price,
+        date: selectedDate,
+        time: selectedTime,
+        notes,
+        smsUpdates,
+        emailUpdates,
+        paymentStatus: 'Pending',
+        createdAt: new Date().toISOString(),
+      };
 
-      checkoutUrl.searchParams.set('prefilled_email', emailAddress);
-      checkoutUrl.searchParams.set(
-        'client_reference_id',
-        `${selectedServiceDetails.label} | ${selectedDate} | ${selectedTime}`
-      );
-      checkoutUrl.searchParams.set('success_url', successUrl);
-      checkoutUrl.searchParams.set('cancel_url', cancelUrl);
-      checkoutUrl.searchParams.set('full_name', fullName);
-      checkoutUrl.searchParams.set('phone', phoneNumber);
-      checkoutUrl.searchParams.set('address', serviceAddress);
-      checkoutUrl.searchParams.set('service_date', selectedDate);
-      checkoutUrl.searchParams.set('service_time', selectedTime);
-      checkoutUrl.searchParams.set(
-        'notes',
-        `Name: ${fullName} | Phone: ${phoneNumber} | Address: ${serviceAddress} | Service: ${selectedServiceDetails.label} | Date: ${selectedDate} | Time: ${selectedTime} | Notes: ${notes}`
-      );
-      checkoutUrl.searchParams.set('sms_updates', String(smsUpdates));
-      checkoutUrl.searchParams.set('email_updates', String(emailUpdates));
+      await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8',
+        },
+        body: JSON.stringify(bookingPayload),
+      });
 
-      window.location.href = checkoutUrl.toString();
+      if (selectedServiceDetails?.checkoutUrl && typeof window !== 'undefined') {
+        const checkoutUrl = new URL(selectedServiceDetails.checkoutUrl);
+        const successUrl = `${window.location.origin}${window.location.pathname}?booking=success`;
+        const cancelUrl = `${window.location.origin}${window.location.pathname}?booking=cancelled`;
+
+        checkoutUrl.searchParams.set('prefilled_email', emailAddress);
+        checkoutUrl.searchParams.set('success_url', successUrl);
+        checkoutUrl.searchParams.set('cancel_url', cancelUrl);
+
+        window.location.href = checkoutUrl.toString();
+        return;
+      }
+
+      setValidationMessage('Stripe checkout link is missing for this service.');
+    } catch (error) {
+      setValidationMessage('Booking could not be saved to Google Sheets. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -201,7 +223,7 @@ export default function HoustonLuxeCleaningWebsite() {
                 <p className="text-xs uppercase tracking-[0.2em] text-emerald-200">Booking Confirmed</p>
                 <h2 className="mt-1 text-2xl font-semibold text-white">Your cleaning request has been received.</h2>
                 <p className="mt-2 text-sm text-neutral-200">
-                  We’ll send your confirmation details by email and text once your Stripe payment is completed and notifications are connected.
+                  We’ll send your confirmation details by email and text once your Stripe payment is completed.
                 </p>
               </div>
               <button
@@ -399,9 +421,10 @@ export default function HoustonLuxeCleaningWebsite() {
                   <button
                     type="button"
                     onClick={handleCheckout}
-                    className="w-full rounded-2xl bg-amber-300 px-6 py-3 text-sm font-semibold text-black transition hover:scale-[1.01]"
+                    disabled={isSubmitting}
+                    className="w-full rounded-2xl bg-amber-300 px-6 py-3 text-sm font-semibold text-black transition hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-70"
                   >
-                    Continue to Checkout — ${selectedServiceDetails.price}
+                    {isSubmitting ? 'Saving Booking...' : `Continue to Checkout — $${selectedServiceDetails.price}`}
                   </button>
                 </form>
               </div>
