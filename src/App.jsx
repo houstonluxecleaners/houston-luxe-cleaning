@@ -3,25 +3,25 @@ import { ChevronDown } from 'lucide-react';
 
 export default function HoustonLuxeCleaningWebsite() {
   const logoPath = '/logo.png';
-  const GOOGLE_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzBG8ApDnzlTuDTi81QnMLFu_TgBSEiXm_UPlH2cNid2mwi13mamhiquPl_IAqwseV86g/exec';
+  const GOOGLE_SHEETS_WEBHOOK_URL =
+    'https://script.google.com/macros/s/AKfycbzBG8ApDnzlTuDTi81QnMLFu_TgBSEiXm_UPlH2cNid2mwi13mamhiquPl_IAqwseV86g/exec';
 
   const serviceOptions = [
-    { id: 'test-1', label: '🧪 Test Booking ($1)', price: 1, checkoutUrl: 'https://book.stripe.com/dRm28r4fl79r3HhaMK8g00d' },
+    { id: 'test-1', label: '🧪 Test Booking ($1)', price: 1, checkoutUrl: 'PASTE_TEST_STRIPE_LINK_HERE' },
 
-    { id: 'regular-1', label: 'Regular Clean - Studio / 1 Bed', price: 130, checkoutUrl: 'https://buy.stripe.com/5kQ3cv139ctLcdN9IG8g000' },
-    { id: 'regular-23', label: 'Regular Clean - 2–3 Bedroom', price: 180, checkoutUrl: 'https://book.stripe.com/28E28r8vBeBT1z92ge8g001' },
-    { id: 'regular-4', label: 'Regular Clean - 4 Bedroom', price: 240, checkoutUrl: 'https://book.stripe.com/fZu00j7rx0L3fpZg748g002' },
-    { id: 'regular-2000', label: 'Regular Clean - ~2,000 sq ft', price: 270, checkoutUrl: 'https://book.stripe.com/dRm5kD9zF0L3cdN2ge8g003' },
+    { id: 'regular-1', label: 'Regular Clean - Studio / 1 Bed', price: 130, checkoutUrl: 'https://book.stripe.com/28E28r8vBeBT1z92ge8g001' },
+    { id: 'regular-23', label: 'Regular Clean - 2–3 Bedroom', price: 180, checkoutUrl: 'https://book.stripe.com/fZu00j7rx0L3fpZg748g002' },
+    { id: 'regular-4', label: 'Regular Clean - 4 Bedroom', price: 240, checkoutUrl: 'https://book.stripe.com/dRm5kD9zF0L3cdN2ge8g003' },
 
-    { id: 'deep-1', label: 'Deep Clean - Studio / 1 Bed', price: 200, checkoutUrl: 'https://book.stripe.com/14A6oHaDJ0L30v50868g005' },
-    { id: 'deep-23', label: 'Deep Clean - 2–3 Bedroom', price: 280, checkoutUrl: 'https://book.stripe.com/9B69AT6ntdxPelVbQO8g008' },
-    { id: 'deep-4', label: 'Deep Clean - 4 Bedroom', price: 350, checkoutUrl: 'https://book.stripe.com/bJe5kDcLR1P70v5bQO8g007' },
-    { id: 'deep-2000', label: 'Deep Clean - ~2,000 sq ft', price: 400, checkoutUrl: 'https://book.stripe.com/cNifZhbHNbpH6Ttf308g006' },
+    { id: 'deep-1', label: 'Deep Clean - Studio / 1 Bed', price: 200, checkoutUrl: 'PASTE_DEEP_1_LINK' },
+    { id: 'deep-23', label: 'Deep Clean - 2–3 Bedroom', price: 280, checkoutUrl: 'PASTE_DEEP_23_LINK' },
+    { id: 'deep-4', label: 'Deep Clean - 4 Bedroom', price: 350, checkoutUrl: 'PASTE_DEEP_4_LINK' },
+    { id: 'deep-2000', label: 'Deep Clean - ~2,000 sq ft', price: 400, checkoutUrl: 'PASTE_DEEP_2000_LINK' },
 
-    { id: 'move-1', label: 'Move-In/Out - Studio / 1 Bed', price: 250, checkoutUrl: 'https://buy.stripe.com/bJe14naDJctL1z95sq8g00b' },
-    { id: 'move-23', label: 'Move-In/Out - 2–3 Bedroom', price: 300, checkoutUrl: 'https://book.stripe.com/eVqeVd6nt8dv7Xx9IG8g00a' },
-    { id: 'move-4', label: 'Move-In/Out - 4 Bedroom', price: 380, checkoutUrl: 'https://book.stripe.com/00w7sL9zF0L3elV9IG8g009' },
-    { id: 'move-2000', label: 'Move-In/Out - ~2,000 sq ft', price: 430, checkoutUrl: 'https://book.stripe.com/4gM6oHaDJ8dvfpZ6wu8g00c' },
+    { id: 'move-1', label: 'Move-In/Out - Studio / 1 Bed', price: 250, checkoutUrl: 'PASTE_MOVE_1_LINK' },
+    { id: 'move-23', label: 'Move-In/Out - 2–3 Bedroom', price: 300, checkoutUrl: 'PASTE_MOVE_23_LINK' },
+    { id: 'move-4', label: 'Move-In/Out - 4 Bedroom', price: 380, checkoutUrl: 'PASTE_MOVE_4_LINK' },
+    { id: 'move-2000', label: 'Move-In/Out - ~2,000 sq ft', price: 430, checkoutUrl: 'PASTE_MOVE_2000_LINK' },
   ];
 
   const services = [
@@ -32,7 +32,6 @@ export default function HoustonLuxeCleaningWebsite() {
         'Studio / 1 Bed → $130',
         '2–3 Bedroom → $180',
         '4 Bedroom → $240',
-        '~2,000 sq ft → $270',
       ],
     },
     {
@@ -163,6 +162,14 @@ export default function HoustonLuxeCleaningWebsite() {
       return;
     }
 
+    if (
+      !GOOGLE_SHEETS_WEBHOOK_URL ||
+      GOOGLE_SHEETS_WEBHOOK_URL.includes('PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE')
+    ) {
+      setValidationMessage('Add your Google Sheets webhook URL before using checkout.');
+      return;
+    }
+
     setValidationMessage('');
     setIsSubmitting(true);
 
@@ -223,7 +230,7 @@ export default function HoustonLuxeCleaningWebsite() {
                 <p className="text-xs uppercase tracking-[0.2em] text-emerald-200">Booking Confirmed</p>
                 <h2 className="mt-1 text-2xl font-semibold text-white">Your cleaning request has been received.</h2>
                 <p className="mt-2 text-sm text-neutral-200">
-                  We’ll send your confirmation details by email and text once your Stripe payment is completed.
+                  We’ll send your confirmation details by email and text once your Stripe payment is completed and notifications are connected.
                 </p>
               </div>
               <button
@@ -286,7 +293,7 @@ export default function HoustonLuxeCleaningWebsite() {
               </div>
             </div>
 
-            <div id="booking">
+            <div>
               <div>
                 <div className="mb-5 flex items-center justify-between">
                   <div>
