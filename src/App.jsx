@@ -5,18 +5,22 @@ export default function HoustonLuxeCleaningWebsite() {
   const logoPath = '/logo.png';
 
   const serviceOptions = [
-    { id: 'regular-1', label: 'Regular Clean - Studio / 1 Bed', price: 110, checkoutUrl: 'https://buy.stripe.com/replace_regular_1' },
-    { id: 'regular-23', label: 'Regular Clean - 2–3 Bedroom', price: 160, checkoutUrl: 'https://buy.stripe.com/replace_regular_23' },
-    { id: 'regular-4', label: 'Regular Clean - 4 Bedroom', price: 200, checkoutUrl: 'https://buy.stripe.com/replace_regular_4' },
-    { id: 'regular-2000', label: 'Regular Clean - ~2,000 sq ft', price: 220, checkoutUrl: 'https://buy.stripe.com/replace_regular_2000' },
-    { id: 'deep-1', label: 'Deep Clean - Studio / 1 Bed', price: 160, checkoutUrl: 'https://buy.stripe.com/replace_deep_1' },
-    { id: 'deep-23', label: 'Deep Clean - 2–3 Bedroom', price: 220, checkoutUrl: 'https://buy.stripe.com/replace_deep_23' },
-    { id: 'deep-4', label: 'Deep Clean - 4 Bedroom', price: 260, checkoutUrl: 'https://buy.stripe.com/replace_deep_4' },
-    { id: 'deep-2000', label: 'Deep Clean - ~2,000 sq ft', price: 300, checkoutUrl: 'https://buy.stripe.com/replace_deep_2000' },
-    { id: 'move-1', label: 'Move-In/Out - Studio / 1 Bed', price: 180, checkoutUrl: 'https://buy.stripe.com/replace_move_1' },
-    { id: 'move-23', label: 'Move-In/Out - 2–3 Bedroom', price: 250, checkoutUrl: 'https://buy.stripe.com/replace_move_23' },
-    { id: 'move-4', label: 'Move-In/Out - 4 Bedroom', price: 300, checkoutUrl: 'https://buy.stripe.com/replace_move_4' },
-    { id: 'move-2000', label: 'Move-In/Out - ~2,000 sq ft', price: 350, checkoutUrl: 'https://buy.stripe.com/replace_move_2000' },
+    { id: 'test-1', label: '🧪 Test Booking ($1)', price: 1, checkoutUrl: 'https://book.stripe.com/dRm28r4fl79r3HhaMK8g00d' },
+
+    { id: 'regular-1', label: 'Regular Clean - Studio / 1 Bed', price: 130, checkoutUrl: 'https://buy.stripe.com/5kQ3cv139ctLcdN9IG8g000' },
+    { id: 'regular-23', label: 'Regular Clean - 2–3 Bedroom', price: 180, checkoutUrl: 'https://book.stripe.com/28E28r8vBeBT1z92ge8g001' },
+    { id: 'regular-4', label: 'Regular Clean - 4 Bedroom', price: 240, checkoutUrl: 'https://book.stripe.com/fZu00j7rx0L3fpZg748g002' },
+    { id: 'regular-2000', label: 'Regular Clean - ~2,000 sq ft', price: 270, checkoutUrl: 'https://book.stripe.com/dRm5kD9zF0L3cdN2ge8g003' },
+
+    { id: 'deep-1', label: 'Deep Clean - Studio / 1 Bed', price: 200, checkoutUrl: 'https://book.stripe.com/14A6oHaDJ0L30v50868g005' },
+    { id: 'deep-23', label: 'Deep Clean - 2–3 Bedroom', price: 280, checkoutUrl: 'https://book.stripe.com/9B69AT6ntdxPelVbQO8g008' },
+    { id: 'deep-4', label: 'Deep Clean - 4 Bedroom', price: 350, checkoutUrl: 'https://book.stripe.com/bJe5kDcLR1P70v5bQO8g007' },
+    { id: 'deep-2000', label: 'Deep Clean - ~2,000 sq ft', price: 400, checkoutUrl: 'https://book.stripe.com/cNifZhbHNbpH6Ttf308g006' },
+
+    { id: 'move-1', label: 'Move-In/Out - Studio / 1 Bed', price: 250, checkoutUrl: 'https://buy.stripe.com/bJe14naDJctL1z95sq8g00b' },
+    { id: 'move-23', label: 'Move-In/Out - 2–3 Bedroom', price: 300, checkoutUrl: 'https://book.stripe.com/eVqeVd6nt8dv7Xx9IG8g00a' },
+    { id: 'move-4', label: 'Move-In/Out - 4 Bedroom', price: 380, checkoutUrl: 'https://book.stripe.com/00w7sL9zF0L3elV9IG8g009' },
+    { id: 'move-2000', label: 'Move-In/Out - ~2,000 sq ft', price: 430, checkoutUrl: 'https://book.stripe.com/4gM6oHaDJ8dvfpZ6wu8g00c' },
   ];
 
   const services = [
@@ -24,30 +28,66 @@ export default function HoustonLuxeCleaningWebsite() {
       title: 'Regular Clean',
       subtitle: 'Luxury upkeep cleaning',
       tiers: [
-        'Studio / 1 Bed → $110',
-        '2–3 Bedroom → $160',
-        '4 Bedroom → $200',
-        '~2,000 sq ft → $220',
+        'Studio / 1 Bed → $130',
+        '2–3 Bedroom → $180',
+        '4 Bedroom → $240',
+        '~2,000 sq ft → $270',
       ],
     },
     {
       title: 'Deep Clean',
       subtitle: 'Detailed, top-to-bottom reset',
       tiers: [
-        'Studio / 1 Bed → $160',
-        '2–3 Bedroom → $220',
-        '4 Bedroom → $260',
-        '~2,000 sq ft → $300',
+        'Studio / 1 Bed → $200',
+        '2–3 Bedroom → $280',
+        '4 Bedroom → $350',
+        '~2,000 sq ft → $400',
       ],
     },
     {
       title: 'Move-In / Move-Out Clean',
       subtitle: 'Empty home, full turnover clean',
       tiers: [
-        'Studio / 1 Bed → $180',
-        '2–3 Bedroom → $250',
-        '4 Bedroom → $300',
-        '~2,000 sq ft → $350',
+        'Studio / 1 Bed → $250',
+        '2–3 Bedroom → $300',
+        '4 Bedroom → $380',
+        '~2,000 sq ft → $430',
+      ],
+    },
+  ];
+
+  const includedSections = [
+    {
+      title: 'Standard / Regular Clean',
+      items: [
+        'Dusting all surfaces',
+        'Sweeping & mopping floors',
+        'Vacuuming carpets',
+        'Cleaning bathrooms',
+        'Kitchen cleaning (exterior appliances)',
+        'Trash removal',
+      ],
+    },
+    {
+      title: 'Deep Clean',
+      items: [
+        'Everything in standard clean',
+        'Baseboards wiped down',
+        'Inside appliances (optional)',
+        'Detailed bathroom scrubbing',
+        'Interior cabinet wipe-down',
+        'Doors, switches, vents cleaned',
+        'Heavy buildup addressed',
+      ],
+    },
+    {
+      title: 'Move-In / Move-Out',
+      items: [
+        'Full deep clean of empty home',
+        'Inside cabinets & drawers',
+        'Inside appliances',
+        'Closets, baseboards, doors, trim',
+        'Ready for next tenant or owner',
       ],
     },
   ];
@@ -129,7 +169,10 @@ export default function HoustonLuxeCleaningWebsite() {
       const cancelUrl = `${window.location.origin}${window.location.pathname}?booking=cancelled`;
 
       checkoutUrl.searchParams.set('prefilled_email', emailAddress);
-      checkoutUrl.searchParams.set('client_reference_id', selectedServiceDetails.id);
+      checkoutUrl.searchParams.set(
+        'client_reference_id',
+        `${selectedServiceDetails.label} | ${selectedDate} | ${selectedTime}`
+      );
       checkoutUrl.searchParams.set('success_url', successUrl);
       checkoutUrl.searchParams.set('cancel_url', cancelUrl);
       checkoutUrl.searchParams.set('full_name', fullName);
@@ -137,7 +180,10 @@ export default function HoustonLuxeCleaningWebsite() {
       checkoutUrl.searchParams.set('address', serviceAddress);
       checkoutUrl.searchParams.set('service_date', selectedDate);
       checkoutUrl.searchParams.set('service_time', selectedTime);
-      checkoutUrl.searchParams.set('notes', notes);
+      checkoutUrl.searchParams.set(
+        'notes',
+        `Name: ${fullName} | Phone: ${phoneNumber} | Address: ${serviceAddress} | Service: ${selectedServiceDetails.label} | Date: ${selectedDate} | Time: ${selectedTime} | Notes: ${notes}`
+      );
       checkoutUrl.searchParams.set('sms_updates', String(smsUpdates));
       checkoutUrl.searchParams.set('email_updates', String(emailUpdates));
 
@@ -218,7 +264,7 @@ export default function HoustonLuxeCleaningWebsite() {
               </div>
             </div>
 
-            <div>
+            <div id="booking">
               <div>
                 <div className="mb-5 flex items-center justify-between">
                   <div>
@@ -340,7 +386,7 @@ export default function HoustonLuxeCleaningWebsite() {
                     <div className="mt-2 text-lg font-semibold text-white">{selectedServiceDetails.label}</div>
                     <div className="mt-1 text-3xl font-semibold text-amber-200">${selectedServiceDetails.price}</div>
                     <p className="mt-2 text-sm text-neutral-300">
-                      When you add your Stripe payment links, this button will send each customer to the matching checkout page automatically.
+                      You’re almost done. Review your service details and continue to secure checkout.
                     </p>
                   </div>
 
@@ -357,24 +403,6 @@ export default function HoustonLuxeCleaningWebsite() {
                   >
                     Continue to Checkout — ${selectedServiceDetails.price}
                   </button>
-
-                  <p className="text-center text-xs text-neutral-500">
-                    Replace the placeholder Stripe links in the code with your real checkout URLs.
-                  </p>
-
-                  <div className="rounded-[1.5rem] border border-white/10 bg-black/20 p-4 text-sm text-neutral-300">
-                    <div className="text-xs uppercase tracking-[0.2em] text-amber-200">After Payment Flow</div>
-                    <p className="mt-2">
-                      After Stripe payment, send customers back to this page using a success URL ending in{' '}
-                      <span className="text-white">?booking=success</span>. Then connect Stripe to Zapier so you can trigger a confirmation email and SMS automatically.
-                    </p>
-                    <div className="mt-3 space-y-2 text-neutral-400">
-                      <p>1. Stripe successful payment</p>
-                      <p>2. Zapier sends booking email confirmation</p>
-                      <p>3. Zapier or Twilio sends SMS confirmation</p>
-                      <p>4. You create or assign the job in Jobber</p>
-                    </div>
-                  </div>
                 </form>
               </div>
             </div>
@@ -420,41 +448,16 @@ export default function HoustonLuxeCleaningWebsite() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
-          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6">
-            <h3 className="mb-4 text-xl font-semibold">Standard / Regular Clean</h3>
-            <ul className="space-y-2 text-sm text-neutral-300">
-              <li>• Dusting all surfaces</li>
-              <li>• Sweeping & mopping floors</li>
-              <li>• Vacuuming carpets</li>
-              <li>• Cleaning bathrooms</li>
-              <li>• Kitchen cleaning (exterior appliances)</li>
-              <li>• Trash removal</li>
-            </ul>
-          </div>
-
-          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6">
-            <h3 className="mb-4 text-xl font-semibold">Deep Clean</h3>
-            <ul className="space-y-2 text-sm text-neutral-300">
-              <li>• Everything in standard clean</li>
-              <li>• Baseboards wiped down</li>
-              <li>• Inside appliances (optional)</li>
-              <li>• Detailed bathroom scrubbing</li>
-              <li>• Interior cabinet wipe-down</li>
-              <li>• Doors, switches, vents cleaned</li>
-              <li>• Heavy buildup addressed</li>
-            </ul>
-          </div>
-
-          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6">
-            <h3 className="mb-4 text-xl font-semibold">Move-In / Move-Out</h3>
-            <ul className="space-y-2 text-sm text-neutral-300">
-              <li>• Full deep clean of empty home</li>
-              <li>• Inside cabinets & drawers</li>
-              <li>• Inside appliances</li>
-              <li>• Closets, baseboards, doors, trim</li>
-              <li>• Ready for next tenant or owner</li>
-            </ul>
-          </div>
+          {includedSections.map((section) => (
+            <div key={section.title} className="rounded-[2rem] border border-white/10 bg-white/5 p-6">
+              <h3 className="mb-4 text-xl font-semibold">{section.title}</h3>
+              <ul className="space-y-2 text-sm text-neutral-300">
+                {section.items.map((item) => (
+                  <li key={item}>• {item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </section>
 
